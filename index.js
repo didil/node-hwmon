@@ -45,6 +45,11 @@ Hwmon.prototype.fetchData = function(){
       var cpuHeaders = lines[0];
       var cpuMetrics = lines[1];
       var devHeaders = lines[3];
+
+      if(!devHeaders) {
+        return;
+      }
+      
       var devMetrics = [];
       var devMetricNum = 0;
       for(var i = 4; i < lines.length; i++){
